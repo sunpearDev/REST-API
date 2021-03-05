@@ -1,0 +1,2 @@
+1.dùng npm cài các package trong package.json
+2.tại đó mở cmd, npm start
