@@ -3,6 +3,7 @@ import Title from '../components/Title.js'
 import axios from 'axios'
 import Table from '../components/Table.js'
 
+
 export default class HomePage extends Component {
     constructor(props) {
         super(props)
@@ -11,11 +12,21 @@ export default class HomePage extends Component {
         this.emptyOther = this.emptyOther.bind(this)
         this.state = {
             data: [],
-            province: 'ha-noi',
+            provinces: [],
+            province: 'tien-giang',
             page: 1,
             nameCompany: '',
             taxCode: ''
         }
+    }
+    componentDidMount() {
+        axios.get('https://thongtindoanhnghiep.co/api/city').then(res => {
+            let tempProvince = []
+            res.data.LtsItem.map(item => {
+                tempProvince.push({ id: item.SolrID.substr(1), name: item.Title })
+            })
+            this.setState({ provinces: tempProvince })
+        })
     }
     handleChange(e) {
         this.setState({
@@ -50,9 +61,9 @@ export default class HomePage extends Component {
     }
     emptyOther() {
         this.setState({
-            province:'',
-            page:'',
-            nameCompany:''
+            province: '',
+            page: '',
+            nameCompany: ''
         })
     }
     render() {
@@ -62,7 +73,11 @@ export default class HomePage extends Component {
                 <form onSubmit={this.getData}>
                     <div className="form-group">
                         <label>Tỉnh:</label>
-                        <input type="text" className="form-control" name="province" onChange={this.handleChange} value={this.state.province} />
+                        <select name="province" onChange={this.handleChange}>
+                            {this.state.provinces.map(item => (
+                                <option value={item.id} >{item.name}</option>
+                            ))}
+                        </select>
                     </div>
                     <div className="form-group">
                         <label>Trang:</label>
