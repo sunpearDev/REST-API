@@ -1,0 +1,43 @@
+.title-group{
+    font-family: 'FS Core Magic Rough';
+    font-weight: bold;
+}
+.title{
+    font-family: 'FS Core Magic Rough';
+    text-align: center;
+    margin: 50px 0;
+    font-weight: bold;
+}
+.members {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    transition: 0.5s
+    
+}
+.members p{
+    color: white;
+    font-size: 20px;
+    transition: 0.5s;
+}
+.members p:hover{
+    color: black;
+    transform: translateY(-10px);
+    transition: 0.5s;
+}
+.members h4{
+    margin-right: 20px;
+    margin-top: 30px;
+    
+    border: 3px groove black;
+    padding: 10px;
+    transition: 0.5s
+}
+.members li{
+    transition: 0.5s;
+}
+.members li:hover{
+    transform: translateY(-10px);
+    transition: 0.5s;
+    
+}

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Title from '../components/Title.js'
 import axios from 'axios'
 import Table from '../components/Table.js'
-
+import './HomePage.css'
 
 export default class HomePage extends Component {
     constructor(props) {
@@ -69,7 +69,15 @@ export default class HomePage extends Component {
     render() {
         return (
             <>
-                <Title title='Thông tin doanh nghiệp' />
+
+                <h1 className="title-group">Nhóm 3</h1>
+                <ul className="members">
+                    <li><h4>Lý Nhật Hào</h4><p>DH51703353</p></li> 
+                    <li><h4>Bùi Thanh Nguyên</h4><p>DH51703823</p></li>
+                    <li><h4>Trương Hải Hoàng Phương</h4><p>DH51703996</p></li>
+                    <li><h4>Lê Quang Nhựt</h4><p>DH51703886</p></li>
+                </ul>
+                <h1 className="title">Thông tin doanh nghiệp</h1>
                 <form onSubmit={this.getData}>
                     <div className="form-group">
                         <label>Tỉnh:</label>
