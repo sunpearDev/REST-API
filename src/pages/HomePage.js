@@ -13,7 +13,7 @@ export default class HomePage extends Component {
         this.state = {
             data: [],
             provinces: [],
-            province: 'tien-giang',
+            province: '',
             page: 1,
             nameCompany: '',
             taxCode: ''
@@ -21,11 +21,11 @@ export default class HomePage extends Component {
     }
     componentDidMount() {
         axios.get('https://thongtindoanhnghiep.co/api/city').then(res => {
-            let tempProvince = []
+            let tempProvinces = []
             res.data.LtsItem.map(item => {
-                tempProvince.push({ id: item.SolrID.substr(1), name: item.Title })
+                tempProvinces.push({ id: item.SolrID.substr(1), name: item.Title })
             })
-            this.setState({ provinces: tempProvince })
+            this.setState({ provinces: tempProvinces })
         })
     }
     handleChange(e) {
@@ -74,6 +74,7 @@ export default class HomePage extends Component {
                     <div className="form-group">
                         <label>Tỉnh:</label>
                         <select name="province" onChange={this.handleChange}>
+                            <option value=''>Toàn quốc</option>
                             {this.state.provinces.map(item => (
                                 <option value={item.id} >{item.name}</option>
                             ))}
@@ -93,7 +94,6 @@ export default class HomePage extends Component {
                     </div>
                     <button type="submit" className="btn btn-primary">Submit</button>
                 </form>
-
                 <Table data={this.state.data} />
 
             </>
