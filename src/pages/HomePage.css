@@ -1,3 +1,10 @@
+@font-face {
+    font-family: 'FS Core Magic Rough';
+    src: url('../font/FSCoreMagicRough.woff2') format('woff2'),
+        url('../font/FSCoreMagicRough.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 .title-group{
     font-family: 'FS Core Magic Rough';
     font-weight: bold;

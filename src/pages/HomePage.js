@@ -82,7 +82,8 @@ export default class HomePage extends Component {
                     <div className="form-group">
                         <label>Tỉnh:</label>
                         <select name="province" onChange={this.handleChange}>
-                            <option value=''>Toàn quốc</option>
+                            {this.state.province===''?<option value='' selected>Toàn quốc</option>:
+                            <option value=''>Toàn quốc</option>}
                             {this.state.provinces.map(item => (
                                 <option value={item.id} >{item.name}</option>
                             ))}
