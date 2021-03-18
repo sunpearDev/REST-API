@@ -16,7 +16,8 @@ export default class HomePage extends Component {
             province: '',
             page: 1,
             nameCompany: '',
-            taxCode: ''
+            taxCode: '',
+            totalRow:0
         }
     }
     componentDidMount() {
@@ -53,8 +54,11 @@ export default class HomePage extends Component {
                 if (this.state.taxCode !== '') {
                     this.setState({ data: [res.data] })
                 }
-                else
+                else{
                     this.setState({ data: res.data.LtsItems })
+                    this.setState({totalRow:res.data.Option.TotalRow})
+                }
+                    
             })
 
 
@@ -103,6 +107,7 @@ export default class HomePage extends Component {
                     </div>
                     <button type="submit" className="btn btn-primary">Submit</button>
                 </form>
+                <div>Đã tìm thấy {this.state.totalRow} rows</div>
                 <Table data={this.state.data} />
 
             </>
