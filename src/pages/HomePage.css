@@ -26,25 +26,23 @@
     color: green;
     font-size: 20px;
     transition: 0.5s;
-}
-
-.members p:hover{
-    color: black;
-    transform: translateY(-10px);
-    transition: 0.5s;
-}
-.members img:hover{
-    transform: translateY(-10px);
-    transition: 0.5s;
-}
-
-li img{
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
     display: flex;
     justify-content: center;
- 
+    align-items: center;
+}
+
+.avatar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+li img{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    filter: drop-shadow(0px 5px 3px #222);
+    
 }
 .members a{
     text-decoration: none;
@@ -55,11 +53,12 @@ li img{
     width: 250px;
     line-height: 20px;
     white-space: nowrap;
-    margin-right: 20px;
+    margin-right: 30px;
     margin-top: 30px;
-    border: 1px groove black;
+    border: 3px solid rgb(240, 234, 234);
     padding: 10px;
-    transition: 0.5s
+    transition: 0.5s;
+    box-shadow: 0px 5px 35px rgba(0,0,0,0.10);
 }
 .members li{
     transition: 0.5s;
